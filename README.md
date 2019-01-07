@@ -1,25 +1,35 @@
-# Viper Proble
+# Tech
+* Python, flask & flask-dance
+* VueJS & Nuxt 
+* Twitter Auth 
 
-## Tech
-* Python
-* Vue 
-* Twitter API with Flask Dance
+## Flow
 
-![Alt text](probe.jpg?raw=true)  
+An example of how to Signin with Twitter using VueJS and Python's flask.
 
-### Goal
+Step 1 - The user clicks Signin with Twitter.
 
-Get articles from the Cabin Quest API and produce questions which can be used as a trivia game.
+![Alt text](step1.png?raw=true) 
+
+Step 2 - The app is redirected to the Twitter confirmation page.
+
+![Alt text](step2.png?raw=true) 
+
+Step 3 - The user accepts and is redirected back to the app.
+
+![Alt text](step3.png?raw=true) 
 
 ## Getting Started
 
 ### Build the Vue 
 
+This will create a dist directory with the all static content and will automatically copy the built folder into python folder via gulp.
+
+Please edit the gulpfile in the vue folder.
+
 ```
 yarn build
 ```
-
-This will create a dist directory with the static content 
 
 ### Build the Python 
 
@@ -30,7 +40,7 @@ python run.py
 
 Open to http://127.0.0.1:5000 not localhost:5000 or 0.0.0.0:5000!
 
-### Docker
+### Deploy as a Docker
 
 ```
 docker build -t probe .
@@ -39,32 +49,28 @@ docker run -p 5000:5000 probe
 
 To see that the docker is running: `docker image ls`
 
-## Twitter Integration
+For this example, I'm using [zeit.co](https://zeit.co/) as the hosting company and you can simply deploy the project like so:
 
-Callback urls
 ```
-https://probe.now.sh/login/twitter/authorized
+now
+```
+
+## Twitter Settings
+
+These are the callback urls I've used in my Twitter app settings to test locally and live. 
+
+```
 http://127.0.0.1:5000/login/twitter/authorized
+https://probe.now.sh/login/twitter/authorized
 ```
+
+## Saving the Twitter Token 
+
+This demo does not yet implement that [SQL backend recommended by flask-dance](https://flask-dance.readthedocs.io/en/latest/backends.html#sqlalchemy) where you should save the authorization token in database so that the user does not need to authorization again when they return to the app after their flask session has expired. 
 
 # Credit 
 
+* [flask-dance](https://github.com/singingwolfboy/flask-dance)
 * [flask-vuejs-template](https://github.com/gtalarico/flask-vuejs-template)
 
-## Python & NLP
-* [how to extract questions with NLTK](https://datascience.stackexchange.com/questions/26427/how-to-extract-question-s-from-document-with-nltk)
-* [how to create a corpus with NLTK](https://stackoverflow.com/questions/4951751/creating-a-new-corpus-with-nltk)
-* [how do I generate question from a sentence](https://www.quora.com/How-do-I-generate-question-from-sentence-in-Python-using-NLTK)
-* [wikipedia question generator)](https://github.com/atbaker/wikipedia-question-generator)
-* [nltk.org](https://www.nltk.org/)
-* [questiongeneration.org](http://www.questiongeneration.org/)
-* [NLP is fun](https://medium.com/@ageitgey/natural-language-processing-is-fun-9a0bff37854e)
-* [spacy](https://spacy.io/)
-* [textacy (built on spacy)](https://readthedocs.org/projects/textacy/)
-* [neuralcoref (built on spacy)](https://github.com/huggingface/neuralcoref)
-* [fasttext](https://fasttext.cc/)
-
-## Muse
-* [Lekila, high templar teacher](https://starcraft.fandom.com/wiki/Lekila)
-* [Adjutant](https://starcraft.fandom.com/wiki/Adjutant)
-* [IT-O](http://starwars.wikia.com/wiki/IT-O_Interrogator)
+![Alt text](probe.jpg?raw=true)  
