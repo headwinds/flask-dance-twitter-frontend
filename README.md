@@ -3,23 +3,13 @@
 * VueJS & Nuxt 
 * Twitter Auth 
 
-## Flow
+## Demo
 
 An example of how to Signin with Twitter using VueJS and Python's flask.
 
 Step 1 - The user clicks Signin with Twitter.
 
-![Alt text](step1.png?raw=true) 
-
-Step 2 - The app is redirected to the Twitter confirmation page.
-
-![Alt text](step2.png?raw=true) 
-
-Step 3 - The user accepts and is redirected back to the app.
-
-![Alt text](step3.png?raw=true) 
-
-## Demo
+![Alt text](signin.png?raw=true) 
 
 [https://probe.now.sh](https://probe.now.sh)
 
