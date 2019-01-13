@@ -12,8 +12,11 @@
       </a>
     </div>
     <div v-if="this.authenticated && this.authenticateCheckComplete">
-      <h1>{{ welcome }}</h1>
-      <button>Ask</button>
+      <h1 class="begin">{{ welcome }}</h1>
+      <p>This is the end of flask-dance Twitter auth demo - now go forth and build the rest of your survey app.</p>
+    </div>
+    <div v-if="!this.authenticated && !this.authenticateCheckComplete">
+      <Spinner />
     </div>
     
     <!--
@@ -31,6 +34,7 @@
 <script>
 
 import * as axios from 'axios';
+import Spinner from './Spinner';
 
 export default {
   name: 'HelloWorld',
@@ -98,6 +102,9 @@ export default {
         }).finally(() => this.loading = false);
 
     }
+  },
+  components: {
+    Spinner
   }
 }
 </script>
@@ -109,6 +116,10 @@ h1 {
   font-family: 'IM Fell English SC', serif;
   color: #e8e8e8;
   font-size: 60px;
+}
+
+h1.begin {
+  color: #66c2e8;
 }
 
 h3 {
